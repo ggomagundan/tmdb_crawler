@@ -1,0 +1,16 @@
+<h1><%= @people.name %></h1>
+
+<%= image_tag @people.image_full_url, class: 'img-fluid img-thumbnail' %>
+
+<h2 class="mt-3"> Credits </h2>
+<div class="col-sm-10 row">
+  <% @people.credits.each do |credit| %>
+    <div class="col-sm-3 mb-3 border">
+      <%= image_tag credit.video.image_full_url, class: "col-sm-11 img-fluid" %>
+      <span class="col-sm-9">
+        <%= credit.video.video_title%>
+        (<%= credit.character %>)
+      </span>
+    </div>
+  <% end %>
+</div>

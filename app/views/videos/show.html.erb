@@ -1,0 +1,63 @@
+<div class="col-sm-12">
+  <div class="col-sm-12"><h1><%= @video.video_title %></h1></div>
+  <%= image_tag @video.image_full_url, class: 'img-fluid' %>
+</div>
+<h2 class="mt-4">
+  Description
+</h2>
+<%= @video.overview %>
+
+<% if @video.media_type == "TvShow" %>
+<h2 class="mt-4">
+  Season & Episodes
+</h2>
+  <% @video.media.tv_episodes.pluck(:season_number).uniq.sort.each do |season_number| %>
+    <div class="col-sm-10 row mb-4">
+      <div class="col-sm-11">
+        <h4> Season <%= season_number %> </h4>
+      </div>
+      <% seasons = @video.media.tv_episodes.where(season_number: season_number).order(:season_number) %>
+      <% seasons.each do |season_epi| %>
+        <div class="col-sm-3 mb-3 border-right">
+          <%= image_tag season_epi.image_full_url, class: "img-fluid" %>
+          Episode <%= season_epi.episode_number %> / <%= season_epi.air_date %> 
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+<h2>
+  Credits
+</h2>
+<div class="col-sm-10 row">
+  <div class="col-sm-12">
+    <h4> Directors </h4>
+  </div>
+  <% @video.non_actor_credits.each do |credit| %>
+    <div class="col-sm-3 mb-3 border">
+      <%= link_to people_path(credit.person) do %>
+        <%= image_tag credit.image_full_url, class: "col-sm-11 img-fluid" %>
+      <% end %>
+      <span class="col-sm-9">
+        <%= credit.character %>
+        (<%= credit.job %>)
+      </span>
+    </div>
+  <% end %>
+</div>
+<div class="col-sm-11 row">
+  <div class="col-sm-12">
+    <h4> Actors </h4>
+  </div>
+  <% @video.actor_credits.each do |credit| %>
+    <div class="col-sm-2 mb-3 mr-1 border-bottom">
+      <%= link_to people_path(credit.person) do %>
+        <%= image_tag credit.image_full_url, class: "col-sm-11 img-fluid" %>
+      <% end %>
+      <span class="col-sm-9">
+        <%= credit.character %>
+      </span>
+    </div>
+  <% end %>
+
+</div>

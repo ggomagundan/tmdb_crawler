@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: MyString
+  tv_show_id: MyString
+  air_date: 2019-07-26
+  episode_number: 1
+  season_number: 1
+  image_url: MyString
+
+two:
+  id: MyString
+  tv_show_id: MyString
+  air_date: 2019-07-26
+  episode_number: 1
+  season_number: 1
+  image_url: MyString

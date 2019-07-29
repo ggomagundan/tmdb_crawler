@@ -1,0 +1,15 @@
+<h1>Videos</h1>
+
+<div class="row">
+  <% @videos.each do |video| %>
+    <div class="col-sm-12 col-md-4 mb-5 border-bottom">
+      <div class="col-sm-10">
+        <%= image_tag  video.image_full_url, class: "col-sm-12 img-fluid" %>
+        <span class="col-sm-2"></span>
+        <span class="col-sm-8">
+          <%= link_to video.video_title, video_path(video) %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>
