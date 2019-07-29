@@ -58,5 +58,8 @@ gem 'hirb'
 gem 'kaminari'
 
 # For debug
- gem 'pry'
- ```
+gem 'pry'
+```
+
+
+[DB Scheme Link](https://github.com/ggomagundan/tmdb_crawler/blob/master/db_scheme.pdf)

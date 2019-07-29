@@ -75,3 +75,7 @@ gem 'kaminari'
 
 # For debug
 gem 'pry'
+
+# For export Database Scheme
+# gem 'rails-erd'
+
