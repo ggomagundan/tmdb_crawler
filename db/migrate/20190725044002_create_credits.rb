@@ -12,5 +12,7 @@ class CreateCredits < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :credits, :video_id
   end
 end

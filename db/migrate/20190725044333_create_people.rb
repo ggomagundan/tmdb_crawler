@@ -9,5 +9,7 @@ class CreatePeople < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :people, :tmdb_people_id
   end
 end

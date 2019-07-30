@@ -12,5 +12,7 @@ class CreateTvEpisodes < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :tv_episodes, :tv_show_id
   end
 end

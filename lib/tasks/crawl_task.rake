@@ -5,12 +5,12 @@ namespace :tmdb do
 
   task :crawl_with_query, [:keyword] do |t, args|
 
-    Movie.delete_all
-    TvShow.delete_all
-    TvEpisode.delete_all
-    Video.delete_all
-    Credit.delete_all
-    Person.delete_all
+#    Movie.delete_all
+#    TvShow.delete_all
+#    TvEpisode.delete_all
+#    Video.delete_all
+#    Credit.delete_all
+#    Person.delete_all
 
     raise "something's wrong here" unless args.keyword.present?
     result =  TmdbFinder.get_search(args.keyword, 1)
